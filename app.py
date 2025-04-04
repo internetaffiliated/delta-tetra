@@ -9,7 +9,7 @@ import tempfile
 from streamlit.components.v1 import html
 
 st.set_page_config(page_title="Growth Model", layout="centered")
-st.title("📈 Growth Model: Δ(t) and G(t) Animated")
+st.title("📈 Growth Model: Δ(t) and G(t)")
 
 # --- Inputs ---
 with st.sidebar:
