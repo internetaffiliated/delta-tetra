@@ -2,7 +2,7 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
+from matplotlib.animation import FuncAnimation, PillowWriter
 from io import BytesIO
 import base64
 from streamlit.components.v1 import html
@@ -81,7 +81,8 @@ ani = FuncAnimation(fig_anim, update, frames=len(t), init_func=init, blit=True)
 
 # Convert to gif and embed
 buf = BytesIO()
-ani.save(buf, format='gif', fps=30)
+writer = PillowWriter(fps=30)
+ani.save(buf, writer=writer)
 data = base64.b64encode(buf.getbuffer()).decode("utf-8")
 html_gif = f'<img src="data:image/gif;base64,{data}"/>'
 st.markdown("### 🌀 Animated Growth Progression")
